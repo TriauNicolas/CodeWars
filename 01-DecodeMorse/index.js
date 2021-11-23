@@ -2,31 +2,27 @@ const MORSE_CODE = {".-": "a", "-...":"b", "-.-.": "c", "-..": "d", ".":"e", "..
 
 
 const decodeMorse = (morseCode) => {
-    let splitedMorse = morseCode.split('');
-    index = 0;
-    letter = "";
-    completeWords = "";
+  let splitedMorse = morseCode.split('');
+  let index = 0;
+  let letter = '';
+  let completeWords = '';
     
-    while (index < splitedMorse.length) {
-
-        if(splitedMorse[index] != " ") {
-            letter += splitedMorse[index]
-
-            if(index == splitedMorse.length - 1) {
-                completeWords += MORSE_CODE[letter]
-            }
-        } else if(letter != ""){
-            completeWords += MORSE_CODE[letter]
-            letter = ""
-        }
-
-        if(splitedMorse[index] == " " && splitedMorse[index + 1] == " " && splitedMorse[index + 2] == " ") {
-            completeWords += " ";
-        }
-
-    index++;
+  while (index < splitedMorse.length) {
+    if (splitedMorse[index] != ' ') {
+      letter += splitedMorse[index];
+      if (index === splitedMorse.length - 1) {
+        completeWords += MORSE_CODE[letter];
+      }
+    } else if (letter != '') {
+      completeWords += MORSE_CODE[letter];
+      letter = '';
     }
-    return completeWords
+    if (splitedMorse[index] === ' ' && splitedMorse[index + 1] === ' ' && splitedMorse[index + 2] === ' ') {
+      completeWords += ' ';
+    }
+    index++;
   }
+  return completeWords;
+}
 
 decodeMorse('.... . -.--   .--- ..- -.. .')
