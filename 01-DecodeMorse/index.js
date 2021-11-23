@@ -6,6 +6,7 @@ const decodeMorse = (morseCode) => {
   let index = 0;
   let letter = '';
   let completeWords = '';
+  let space = true;
     
   while (index < splitedMorse.length) {
     if (splitedMorse[index] != ' ') {
@@ -15,10 +16,12 @@ const decodeMorse = (morseCode) => {
       }
     } else if (letter != '') {
       completeWords += MORSE_CODE[letter];
+      space = false;
       letter = '';
     }
-    if (splitedMorse[index] === ' ' && splitedMorse[index + 1] === ' ' && splitedMorse[index + 2] === ' ') {
+    if (space == false  && splitedMorse[index] === ' ' && splitedMorse[index + 1] === ' ' && splitedMorse[index + 2] === ' ') {
       completeWords += ' ';
+      space = true;
     }
     index++;
   }
