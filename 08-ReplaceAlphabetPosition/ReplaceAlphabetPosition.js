@@ -3,7 +3,7 @@ function alphabetPosition(text) {
   let text_split = text.toUpperCase().split('');
   let new_text = '';
   
-  text_split.forEach((letter, indexText) => {
+  text_split.forEach(letter => {
     alphabet.find((alphabet, index) => {
       if(letter === alphabet) {
         new_text += index + 1 + ' ';
