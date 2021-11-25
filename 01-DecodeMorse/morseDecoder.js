@@ -27,5 +27,3 @@ const decodeMorse = (morseCode) => {
   }
   return completeWords;
 }
-
-decodeMorse('.... . -.--   .--- ..- -.. .')
