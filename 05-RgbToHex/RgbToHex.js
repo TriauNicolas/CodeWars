@@ -23,14 +23,12 @@ function rgb(r, g, b){
   function convert(colors) {
     colors.forEach(color => {
       if (color > 255) {
-        hex_value += 'F'
-        hex_value += 'F'
+        hex_value += 'FF';
       } else if (color >= 0) {
         hex_value += Math.floor(color / 16) <= 15 ? rgb_to_hex[Math.floor(color / 16)] : rgb_to_hex[15];
         hex_value += rgb_to_hex[Math.floor(color % 16)];
       } else {
-        hex_value += '0';
-        hex_value += '0';
+        hex_value += '00';
       }
     })
   }
